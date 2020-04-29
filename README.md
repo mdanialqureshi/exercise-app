@@ -1,0 +1,1 @@
+Full stack exercise app made using the MERN stack. Hosted on heroku. 
