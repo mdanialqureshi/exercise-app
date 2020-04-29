@@ -17,7 +17,7 @@ router.post('/add', (req,res) => {
             res.status(400).json('Error' + err);
         }
         res.json(data);
-    })
+    }) 
 })
 
 module.exports = router;
