@@ -30,7 +30,8 @@ export default class CreateExercise extends Component {
   //react will automatically call this right before anything loads/displays
   // on the page
   componentDidMount() {
-    axios.get('http://localhost:4000/users/')
+    const url = window.location.origin;
+    axios.get(url + '/users/')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
@@ -90,7 +91,8 @@ export default class CreateExercise extends Component {
 
     //use axios to send a post request to the http server running on 
     // the specified url as listed
-    axios.post('http://localhost:4000/exercises/add', exercise)
+    const url = window.location.origin;
+    axios.post(url + '/exercises/add', exercise)
       .then(res => console.log(res.data));
 
       //after it submits take them back to the home page
