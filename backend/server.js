@@ -41,6 +41,12 @@ var server  = app.listen(port, () => {
     console.log("Server is lisenting to port " + port);
 })
 
+process.on('SIGINT', function() {
+    console.log( "\nGracefully shutting down from SIGINT (Ctrl-C)" );
+    // some other closing procedures go here
+    process.exit(1);
+  });
+
 // 
 
 // process.on('exit', () => {
