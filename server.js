@@ -7,6 +7,13 @@ const path = require('path');
 require('dotenv').config();
 const app = express();
 
+if (process.env.NODE_ENV === 'production'){
+    app.use(express.static('client/build'));
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client','build','index.html'))
+    })
+}
+
 const port = process.env.PORT || 4000;
 //middleware
 app.use(cors());
@@ -28,12 +35,7 @@ const usersRouter = require('./routes/users')
 app.use('/exercises',exercisesRouter);
 app.use('/users',usersRouter);
 
-if (process.env.NODE_ENV === 'production'){
-    app.use(express.static('client/build'));
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'client','build','index.html'))
-    })
-}
+
 
 var server  = app.listen(port, () => {
     console.log("Server is lisenting to port " + port);
