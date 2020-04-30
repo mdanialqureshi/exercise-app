@@ -1,9 +1,20 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const path = require('path');
+
 //so we have have environment variables in .env file
 require('dotenv').config();
 const app = express();
+
+if (process.env.NODE_ENV === 'production'){
+    app.use(express.static('../build'));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname,'..','build','index.html'))
+    })
+}
+
 const port = process.env.PORT || 4000;
 //middleware
 app.use(cors());
