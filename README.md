@@ -1,1 +1,1 @@
-Full stack exercise app made using the MERN stack. Hosted on heroku. 
+Full stack exercise app made using the MERN stack. Hosted on heroku. Found at: \\ https://exercise-app-danialq.herokuapp.com/
