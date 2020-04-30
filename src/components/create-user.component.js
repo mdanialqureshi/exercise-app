@@ -30,8 +30,7 @@ export default class CreateUser extends Component {
 
     //use axios to send a post request to the http server running on 
     // the specified url as listed
-    const url = window.location.origin;
-    axios.post(url + '/users/add', user)
+    axios.post('http://localhost:4000/users/add', user)
       .then(res => console.log(res.data));
 
     //another way

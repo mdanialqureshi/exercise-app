@@ -23,9 +23,8 @@ export default class EditExercise extends Component {
   }
 
   componentDidMount() {
-    const url = window.location.origin;
     //id from the url is this.props.match.params.id
-    axios.get(url + '/exercises/'+this.props.match.params.id)
+    axios.get('http://localhost:4000/exercises/'+this.props.match.params.id)
       .then(response => {
         this.setState({
           username: response.data.username,
@@ -38,7 +37,7 @@ export default class EditExercise extends Component {
         console.log(error);
       })
 
-    axios.get(url + '/users/')
+    axios.get('http://localhost:4000/users/')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
